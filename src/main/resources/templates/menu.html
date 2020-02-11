@@ -17,8 +17,8 @@
 		<h2>Menu of available services</h2>
 		<h3>Facial Treatments</h3>
 		<p>The facial treatments below are recommended by our estheticians for your given skin type.</p>
-		<th:block th:each="facial : ${facials}">
-			<p th:text=${facial}></p>
+		<th:block th:each="appropriateFacial : ${appropriateFacials}">
+			<p th:text=${appropriateFacial}></p>
 		</th:block>
 	</div>
 	<div th:if = "${manipedi == 'manicure'}">
