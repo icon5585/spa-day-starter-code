@@ -3,6 +3,7 @@ package org.launchcode.spaday.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.launchcode.spaday.models.Client;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -93,4 +94,19 @@ public class SpaDayController {
         
         return "menu";
     }
+    
+    @GetMapping
+    public String displayClientForm (Model model) {
+        return "serviceSelection";
+    }
+    
+    @PostMapping
+    public String processClientForm(@RequestParam String skintype, @RequestParam String manipedi, Model model) {
+        Client newClient = new Client(skintype, manipedi);
+        newClient.setAppropriateFacials(skintype);
+        model.addAttribute("client" , newClient);
+
+        return "menu";
+    }
+
 }
