@@ -20,6 +20,8 @@ public class UserController {
         model.addAttribute("verify", verify);
         model.addAttribute("username", user.getUsername());
         model.addAttribute("email", user.getEmail());
+        
+        // Check if passwords match
         if (user.getPassword().equals(verify)) {
            return "user/index";
         }
